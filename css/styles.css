@@ -1,0 +1,59 @@
+/* Remove default styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#container {
+    width: 500px;
+    height: 400px;
+    background-color: brown;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+#container, #container * {
+    border-radius: 10px;
+}
+
+#screen {
+    background-color: white;
+    flex: 1;
+}
+
+#buttons {
+    flex: 3;
+    display: flex;
+    gap: 1rem;
+}
+#numbers {
+    flex: 2;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.number {
+    background-color: rebeccapurple;
+    flex: calc(100%/3 - 1rem);
+}
+
+#functions {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.function {
+    background-color: coral;
+    flex: calc(100%/2 - 1rem);
+}

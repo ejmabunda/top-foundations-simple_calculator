@@ -47,13 +47,13 @@ body {
     flex: calc(100%/3 - 1rem);
 }
 
-#functions {
+#operators {
     flex: 1;
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
 }
-.function {
+.operator {
     background-color: coral;
     flex: calc(100%/2 - 1rem);
 }

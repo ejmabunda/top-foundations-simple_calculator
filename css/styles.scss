@@ -1,0 +1,90 @@
+/* Remove default styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Design specs */
+$dark-bg: #22252d;
+$dark-bg-lighter: #272b33;
+$dark-bg-lighest: #292d36;
+
+$accent: #26fbd4;
+$accent2: #d76061;
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Azeret Mono", monospace;
+}
+
+#container {
+    width: 500px;
+    height: 400px;
+    background-color: $dark-bg;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    #screen {
+        padding: 1rem;
+        flex: 1;
+        color: white;
+    }
+
+    #buttons {
+        background-color: $dark-bg-lighest;
+        flex: 3;
+        display: flex;
+        gap: 1rem;
+        padding: 1rem;
+
+        .number, .operator {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .number:hover, .operator:hover {
+            cursor: pointer;
+            filter: brightness(0.8);
+        }
+        
+        #numbers {
+            flex: 2;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            color: white;
+
+            .number {
+                background-color: $dark-bg;
+                flex: calc(100%/3 - 1rem);
+            }
+        }
+
+        #operators {
+            flex: 1;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+
+            .operator {
+                background-color: coral;
+                flex: calc(100%/2 - 1rem);
+            }
+        }
+    }
+}
+#container, #container * {
+    border-radius: 10px;
+}
+
+
+
+
+
+

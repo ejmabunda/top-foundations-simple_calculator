@@ -19,8 +19,8 @@ document.querySelectorAll('.operator').forEach((operator) => {
             case 'clear':
                 clear();
                 break;
-            case 'backspace':
-                backspace();
+            case 'del':
+                del();
                 break;
             case '=':
                 result = 
@@ -75,7 +75,7 @@ function clear() {
     clearScreen = false;
 }
 
-function backspace() {
+function del() {
     // Screen shouldn't be empty, display 0 instead.
     if (screen.textContent.length == 1) clear();
     // Remove the rightmost number on the screen

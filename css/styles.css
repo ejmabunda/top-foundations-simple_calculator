@@ -1,59 +1,61 @@
 /* Remove default styles */
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
 
+/* Design specs */
 body {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Azeret Mono", monospace; }
 
 #container {
-    width: 500px;
-    height: 400px;
-    background-color: brown;
+  width: 500px;
+  height: 400px;
+  background-color: #22252d;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; }
+  #container #screen {
     padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-#container, #container * {
-    border-radius: 10px;
-}
-
-#screen {
-    background-color: white;
     flex: 1;
-}
-
-#buttons {
+    color: white; }
+  #container #buttons {
+    background-color: #292d36;
     flex: 3;
     display: flex;
     gap: 1rem;
-}
-#numbers {
-    flex: 2;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-}
-.number {
-    background-color: rebeccapurple;
-    flex: calc(100%/3 - 1rem);
-}
+    padding: 1rem; }
+    #container #buttons .number, #container #buttons .operator {
+      display: flex;
+      align-items: center;
+      justify-content: center; }
+    #container #buttons .number:hover, #container #buttons .operator:hover {
+      cursor: pointer;
+      filter: brightness(0.8); }
+    #container #buttons #numbers {
+      flex: 2;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      color: white; }
+      #container #buttons #numbers .number {
+        background-color: #22252d;
+        flex: calc(100%/3 - 1rem); }
+    #container #buttons #operators {
+      flex: 1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem; }
+      #container #buttons #operators .operator {
+        background-color: coral;
+        flex: calc(100%/2 - 1rem); }
 
-#operators {
-    flex: 1;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-}
-.operator {
-    background-color: coral;
-    flex: calc(100%/2 - 1rem);
-}
+#container, #container * {
+  border-radius: 10px; }
+
+/*# sourceMappingURL=styles.css.map */

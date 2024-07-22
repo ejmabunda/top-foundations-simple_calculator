@@ -6,7 +6,9 @@ let clearScreen = false;
 document.querySelectorAll('.number').forEach((number) => {
     number.addEventListener('click', () => {
         if (clearScreen) clear();
-        screen.textContent += number.textContent;
+        if (screen.textContent == '0')
+            screen.textContent = number.textContent;
+        else screen.textContent += number.textContent;
     });
 });
 

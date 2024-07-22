@@ -23,7 +23,25 @@ body {
   #container #screen {
     padding: 1rem;
     flex: 1;
-    color: white; }
+    color: white;
+    display: flex;
+    flex-direction: column; }
+    #container #screen #expression {
+      flex: 1;
+      background-color: #272b33;
+      border-radius: 0;
+      display: flex;
+      align-items: center;
+      justify-content: end; }
+      #container #screen #expression .op-accent2 {
+        color: #26fbd4; }
+    #container #screen #result {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: end;
+      font-weight: 900;
+      font-size: 2rem; }
   #container #buttons {
     background-color: #292d36;
     flex: 3;

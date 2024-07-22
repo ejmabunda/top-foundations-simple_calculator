@@ -34,6 +34,29 @@ body {
         padding: 1rem;
         flex: 1;
         color: white;
+        display: flex;
+        flex-direction: column;
+
+        #expression {
+            flex: 1;
+            background-color: $dark-bg-lighter;
+            border-radius: 0;
+            display: flex;
+            align-items: center;
+            justify-content: end;
+
+            .op-accent2 {
+                color: $accent;
+            }
+        }
+        #result {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: end;
+            font-weight: 900;
+            font-size: 2rem;
+        }
     }
 
     #buttons {

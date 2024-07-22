@@ -1,37 +1,45 @@
-let screen = document.querySelector('#screen');
+let result = document.querySelector('#result');
+let expression = document.querySelector('#expression');
 let firstNumber = '';
 let userOperator = '';
-let clearScreen = false;
+let clearresult = false;
 
 document.querySelectorAll('.number').forEach((number) => {
     number.addEventListener('click', () => {
-        if (clearScreen) clear();
-        if (screen.textContent == '0')
-            screen.textContent = number.textContent;
-        else screen.textContent += number.textContent;
+        if (number.textContent == '') return;
+
+        if (clearresult) clear();
+        
+        if (result.textContent == '0')
+            result.textContent = number.textContent;
+        else result.textContent += number.textContent;
+
+        let num = document.createElement('span');
+        num.textContent = number.textContent;
+        expression.appendChild(num);
     });
 });
 
 document.querySelectorAll('.operator').forEach((operator) => {
     operator.addEventListener('click', (operator) => {
-        let result = 0;
+        let answer = 0;
         switch (operator.target.textContent) {
             case 'clear':
-                clear();
+                clear(true);
                 break;
             case 'del':
                 del();
                 break;
             case '=':
-                result = 
+                answer = 
                     operate(
                         Number(firstNumber),
-                        Number(screen.textContent),
+                        Number(result.textContent),
                         userOperator
                     );
-                screen.textContent = result;
-                clearScreen = true;
-                firstNumber = screen.textContent;
+                result.textContent = answer;
+                clearresult = true;
+                firstNumber = result.textContent;
                 userOperator = '';
                 break;
             default: // handle +, -, /, and *
@@ -39,16 +47,21 @@ document.querySelectorAll('.operator').forEach((operator) => {
                     result = 
                         operate(
                             Number(firstNumber),
-                            Number(screen.textContent),
+                            Number(result.textContent),
                             operator.target.textContent
                         );
-                    screen.textContent = result;
+                    result.textContent = result;
                 }
 
-                firstNumber = screen.textContent;
+                firstNumber = result.textContent;
                 userOperator = operator.target.textContent;
-                clearScreen = true;
-                break;
+                clearresult = true;
+
+                // Enables dynamic styling for operators to render in accent color.
+                let op = document.createElement('span');
+                op.classList.add('op-accent2');
+                op.textContent = operator.target.textContent;
+                expression.appendChild(op);
         }
     });
 });
@@ -68,18 +81,23 @@ function operate(n1, n2, operator) {
     }
 }
 
-function clear() {
-    screen.textContent = '0';
+function clear(exp = false) {
+    result.textContent = '0';
+    if (exp) expression.textContent = '';
 
     // No need to clear for now
-    clearScreen = false;
+    clearresult = false;
 }
 
 function del() {
-    // Screen shouldn't be empty, display 0 instead.
-    if (screen.textContent.length == 1) clear();
-    // Remove the rightmost number on the screen
-    else screen.textContent = screen.textContent.slice(0, screen.textContent.length - 1);
+    // result shouldn't be empty, display 0 instead.
+    if (result.textContent.length == 1) clear();
+    // Remove the rightmost number on the result
+    else result.textContent =
+        result.textContent.slice(0, result.textContent.length - 1);
+    expression.textContent = 
+        expression.textContent.slice(0, expression.textContent.length - 1);
+    
 }
 
 function add(n1, n2) {
